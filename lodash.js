@@ -280,13 +280,13 @@ const myEmployees = [
     greeting: "Hello, Fry Kelley! You have 1 unread messages.",
     favoriteFruit: "apple"
   }
-];
+]
 
-const myEmployeesAddresses = 0; // use map to get addresses here.
+const myEmployeesAddresses = _.map(myEmployees, "address")
 
 // Now we want to use map to get an array of ages of the employees.
 
-const myEmployeesAges = 0; // use map to get ages here.
+const myEmployeesAges = _.map(myEmployees, "age")
 
 // union
 //  Union lets us take 2 arrays, and create a new array that only has 1 entry for
@@ -311,7 +311,7 @@ const bobFriendsEmails = [
   "mr.giggles@gmail.com",
   "mrs.giggles@gmail.com",
   "black.adder@gmail.com"
-];
+]
 
 const breeFriendsEmails = [
   "red.power@ranger.com",
@@ -324,9 +324,9 @@ const breeFriendsEmails = [
   "stacey@gmail.com",
   "brent@gmail.com",
   "dave@gmail.com"
-];
+]
 
-const listToSendEmailsTo = 0; // Put lodash here to make list of the union of the two address.
+const listToSendEmailsTo = _.union(bobFriendsEmails, breeFriendsEmails)
 
 // intersection
 //  Intersection lets us take two arrays, and create a new array that only
@@ -339,7 +339,7 @@ const listToSendEmailsTo = 0; // Put lodash here to make list of the union of th
 // Bob and Bree have decided that instead of inviting everyone they know to their
 // party. They are instead only going to invite those people that they both know.
 
-const listOfSharedEmails = 0; // Use lodash to create the list that are in both lists
+const listOfSharedEmails = _.intersection(bobFriendsEmails, breeFriendsEmails)
 
 // groupBy
 //  Group By lets us take an array of objects, and group then into groups based
@@ -401,12 +401,12 @@ const purchases = [
   { month: "January", price: 14.25 },
   { month: "March", price: 60.8 },
   { month: "February", price: 23.65 }
-];
+]
 
-const purchasesByMonth = 0; // Use groupBy to group the purchases by the month that they were made.
+const purchasesByMonth = _.groupBy(purchases, "month")
 
 // Bonus Points
-const totalByMonth = 0; // Use the grouped purchasesByMonth and reduce to create a totalByMonth object.
+const totalByMonth = 0 // Use the grouped purchasesByMonth and reduce to create a totalByMonth object.
 
 // memoize
 //  Memoize lets us take a function that takes a lot of time to run, and cache (or memoize)
@@ -419,7 +419,7 @@ const totalByMonth = 0; // Use the grouped purchasesByMonth and reduce to create
 // We are using a recusive function (a function that calls itself)
 
 function slowFibonnaci(n) {
-  return n < 2 ? n : slowFibonnaci(n - 1) + slowFibonnaci(n - 2);
+  return n < 2 ? n : slowFibonnaci(n - 1) + slowFibonnaci(n - 2)
 }
 
 // If you have a fast computer,
@@ -439,14 +439,14 @@ function slowFibonnaci(n) {
 
 //When ready to test uncomment the 3 lines below.
 
-let slowN = 30;
+let slowN = 30
 // console.time('slowFibonnaci:' + slowN)
 // console.log(slowFibonnaci(slowN));
 // console.timeEnd('slowFibonnaci:' + slowN);
 
-let fastN = 1000;
+let fastN = 1000
 
-let fastFibonnaci = 0; // use memoize to create a fast fibonnaci.  Use the same
+let fastFibonnaci = 0 // use memoize to create a fast fibonnaci.  Use the same
 // recursve structure that the slowFibonnaci is using, but have it be memoized
 // so that it'll remeber the previous times it's been called and increase the
 
@@ -460,8 +460,8 @@ let fastFibonnaci = 0; // use memoize to create a fast fibonnaci.  Use the same
 // Here we have a regular axios call to a server.
 
 let getDeathstar = function(n) {
-  return axios.get("https://swapi.co/api/starships/" + n);
-};
+  return axios.get("https://swapi.co/api/starships/" + n)
+}
 
 // Below we can measure the time it takes to get a return from the api call.
 
@@ -498,4 +498,4 @@ let getJedi = // Use Memoize to remember the previous calls made to the server
     //   console.log(e.data)
     //   console.timeEnd('getJedi')
     // });
-  }, 2000);
+  }, 2000)
